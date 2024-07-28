@@ -1,20 +1,27 @@
 import type { Config } from "tailwindcss";
 
-// const colors = {
-//   primary: "#96C291",
-//   secondary: "#DAE9D9",
-//   activeBtn: "#25D48B",
-//   absentBtn: "#202020",
-//   statusPending: "#FFD1B7",
-//   statusPendingText: "#FF8C4B",
-//   statusSuccess: "#D3F6E8",
-//   statusSuccessText: "#25D48B",
-//   statusReject: "#FFBABA",
-//   statusRejectText: "#FF5252",
-//   workingTime: "#25D48B",
-//   breakTime: "#FF8C4B",
-//   overTime: "#35959A",
-// };
+const colors = {
+  basic: "#96C291",
+  secondaryBasic: "#DAE9D9",
+  activeBtn: "#25D48B",
+  absentBtn: "#202020",
+  statusPending: "#FFD1B7",
+  statusPendingText: "#FF8C4B",
+  statusSuccess: "#D3F6E8",
+  statusSuccessText: "#25D48B",
+  statusReject: "#FFBABA",
+  statusRejectText: "#FF5252",
+  workingTime: "#25D48B",
+  breakTime: "#FF8C4B",
+  overTime: "#35959A",
+
+  // navbar
+  logBtn: "#FFBABA",
+  logBtnText: "#FF5252",
+  faq: "#FF8C4B",
+  notificationBtn: "#DAE9D9",
+  notificationBtnText: "#96C291",
+};
 
 const config = {
   darkMode: ["class"],
@@ -35,39 +42,39 @@ const config = {
     },
     extend: {
       colors: {
-        // ...colors,
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        ...colors,
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
       },
       borderRadius: {

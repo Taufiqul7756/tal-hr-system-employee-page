@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -18,11 +19,12 @@ interface NavProps {
     label?: string;
     icon: LucideIcon;
     variant: "default" | "ghost";
-    href?: string;
+    href: string;
   }[];
 }
 
 export function Nav({ links, isCollapsed }: NavProps) {
+  const pathname = usePathname();
   return (
     <TooltipProvider>
       <div
@@ -35,9 +37,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
               <Tooltip key={index} delayDuration={0}>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href={link.href}
                     className={cn(
-                      buttonVariants({ variant: link.variant, size: "icon" }),
+                      buttonVariants({
+                        variant: link.href === pathname ? "default" : "ghost",
+                        size: "icon",
+                      }),
                       "h-9 w-9",
                       link.variant === "default" &&
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
@@ -62,9 +67,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
             ) : (
               <Link
                 key={index}
-                href="#"
+                href={link.href}
                 className={cn(
-                  buttonVariants({ variant: link.variant, size: "sm" }),
+                  buttonVariants({
+                    variant: link.href === pathname ? "default" : "ghost",
+                    size: "sm",
+                  }),
                   link.variant === "default" &&
                     "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                   "justify-start"

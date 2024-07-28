@@ -1,0 +1,13 @@
+import { FolderX } from "lucide-react";
+import * as React from "react";
+
+type Props = {};
+
+export default function leavePage(props: Props) {
+  return (
+    <div className="flex justify-start items-center gap-3">
+      {" "}
+      <FolderX /> Leave Page
+    </div>
+  );
+}

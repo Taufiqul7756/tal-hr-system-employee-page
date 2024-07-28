@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Nav } from "./ui/nav";
 
 import {
@@ -25,21 +25,35 @@ type Props = {};
 export default function SideNavbar({}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
   return (
-    <div className="relative min-w-[80px]  shadow px-6 pb-10 pt-10">
+    <div className="relative min-w-[80px] px-6 pb-10 pt-10">
       <div className="grid justify-center items-center gap-2 pb-10">
-        <div>
+        <div className="">
           <Image src={taufiq} width={50} height={50} alt="" />
         </div>
         {isCollapsed ? (
           <div className="pb-[83px]"></div>
         ) : (
           <div className="grid justify-center items-center">
-            <span className="text-lg">Taufiqul Islam</span>
-            <span className="text-lg text-[#96C291]">Software Engineer </span>
+            <span className="text-md">Taufiqul Islam</span>
+            <span className="text-sm text-basic">Software Engineer </span>
           </div>
         )}
       </div>
@@ -48,7 +62,7 @@ export default function SideNavbar({}: Props) {
         <Button
           onClick={toggleSidebar}
           variant="secondary"
-          className="rounded-full p-1 size-7  text-[#96C291] bg-[#DAE9D9]"
+          className="rounded-full p-1 size-7  text-basic bg-secondaryBasic"
         >
           {isCollapsed ? <ChevronRight /> : <ChevronLeft />}
         </Button>
