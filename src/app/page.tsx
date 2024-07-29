@@ -1,25 +1,28 @@
 import Approval from "@/components/dashboard/Approval";
-import Calendar from "@/components/dashboard/Calendar";
+import CalendarPage from "@/components/dashboard/CalendarPage";
 import Clock from "@/components/dashboard/Clock";
 import { House } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="p-8">
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-center gap-3 mb-10">
         <House />
         <span>Dashboard</span>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white shadow-md rounded-lg p-6">
-          <Clock />
+
+      <div className="grid gap-5 lg:grid-cols-3">
+        <div className="lg:col-span-2 flex flex-col gap-5">
+          <div>
+            <Clock />
+          </div>
+          <div className="">
+            <Approval />
+          </div>
         </div>
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <Calendar />
+        <div className="lg:col-span-1">
+          <CalendarPage />
         </div>
-      </div>
-      <div className="mt-6 bg-white shadow-md rounded-lg p-6">
-        <Approval />
       </div>
     </main>
   );

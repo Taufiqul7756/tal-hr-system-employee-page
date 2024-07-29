@@ -21,6 +21,9 @@ const colors = {
   faq: "#FF8C4B",
   notificationBtn: "#DAE9D9",
   notificationBtnText: "#96C291",
+
+  //approval
+  tableHeaderBg: "#EFFBEF",
 };
 
 const config = {
