@@ -9,7 +9,7 @@ export default function CalendarPage(props: Props) {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   return (
     <div className="grid grid-grow w-full h-full bg-white rounded-md border">
-      <div className="bg-secondaryBasic"> Jan</div>
+      {/* <div className="bg-secondaryBasic"> Jan</div> */}
       <div>
         <Calendar
           mode="single"
@@ -18,12 +18,19 @@ export default function CalendarPage(props: Props) {
           className="w-full h-full"
         />
       </div>
-      <div className="bg-secondaryBasic p-2 flex justify-around items-center">
-        <div className="flex">
+      <div className="bg-secondaryBasic flex justify-around items-center">
+        <div className="flex justify-center items-center gap-2">
+          <span className="bg-holiday size-4"></span>
           <div>Govt Holiday</div>
         </div>
-        <span>Leave</span>
-        <span>Today</span>
+        <div className="flex justify-center items-center gap-2">
+          <span className="bg-leave size-4"></span>
+          <div>Leave</div>
+        </div>
+        <div className="flex justify-center items-center gap-2">
+          <span className="bg-today size-4"></span>
+          <div>Today</div>
+        </div>
       </div>
     </div>
   );

@@ -24,6 +24,11 @@ const colors = {
 
   //approval
   tableHeaderBg: "#EFFBEF",
+
+  //Calender
+  holiday: "#FF8C4B",
+  leave: "#35959A",
+  today: "#96C291",
 };
 
 const config = {
